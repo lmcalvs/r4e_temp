@@ -102,8 +102,8 @@
       		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
       		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
       		<sonar.jacoco.reportPath>../target/jacoco.exec</sonar.jacoco.reportPath>
+      		<jacoco.propertyName>argLine2</jacoco.propertyName>
     	</properties>
-
     	<build>
       		<plugins>
        	 	<!-- Enabling use of jacoco -->
@@ -119,6 +119,7 @@
               				<configuration>
                 			<!-- Where to put jacoco coverage report -->
                 			<destFile>${sonar.jacoco.reportPath}</destFile>
+                			<propertyName>${jacoco.propertyName}</propertyName>
               				</configuration>
             			</execution>
           			</executions>
