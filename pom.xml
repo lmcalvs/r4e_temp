@@ -99,6 +99,7 @@
     	<id>sonar-jcoverage</id>
       	<properties>
       		<!-- Properties to enable jacoco code coverage analysis -->
+      		<coverage-skip>false</coverage-skip>
       		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
       		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
       		<sonar.jacoco.reportPath>../target/jacoco.exec</sonar.jacoco.reportPath>
