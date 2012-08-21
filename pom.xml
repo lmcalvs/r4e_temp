@@ -179,7 +179,7 @@
           <id>eclipse-orbit</id>
           <layout>p2</layout>
           <url>${orbit-repository-url}</url>
-
+        </repository>
       </repositories>
       <modules>
         <module>org.eclipse.mylyn.reviews.frame.core</module>
