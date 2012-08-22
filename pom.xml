@@ -30,7 +30,12 @@
   <properties>
     <tycho-version>0.15.0</tycho-version>
     <mockito-version>1.8.4</mockito-version>
-    <junit-version>4.8.1</junit-version>    
+    <junit-version>4.8.1</junit-version>
+
+    <!-- Coverage -->
+    <coverage.skip>true</coverage.skip>
+    <coverage.filter>org.eclipse.mylyn.*</coverage.filter>
+
     <!-- Repository Locations -->
     <orbit-repository-url>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-repository-url>
     <mylyn-repository-url>http://download.eclipse.org/mylyn/snapshots/nightly/</mylyn-repository-url>
@@ -222,8 +227,13 @@
                 				<goal>prepare-agent</goal>
               				</goals>
               				<configuration>
+                   <skip>${coverage.skip}</skip>
                 			<!-- Where to put jacoco coverage report -->
                 			<destFile>${sonar.jacoco.reportPath}</destFile>
+                   <includes>
+                     <include>${coverage.filter}</include>
+                   </includes>
+                   <append>true</append>
               				</configuration>
             			</execution>
           			</executions>
@@ -289,6 +299,19 @@
         <dist.pack200>/shared/common/jdk-1.5.0-22.x86_64/bin</dist.pack200>
         <maven.test.error.ignore>true</maven.test.error.ignore>
         <maven.test.failure.ignore>true</maven.test.failure.ignore>
+      </properties>
+    </profile>
+    <!-- Coverage -->
+    <profile>
+      <id>coverage-initializer</id>
+      <activation>
+        <property>
+          <name>!coverage.skip</name>
+        </property>
+      </activation>
+      <!-- set default property values if test coverage is diabled -->
+      <properties>
+        <tycho.testArgLine></tycho.testArgLine>
       </properties>
     </profile>
   </profiles>
@@ -477,5 +500,5 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-  
+
 </project>
