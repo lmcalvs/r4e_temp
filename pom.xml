@@ -29,7 +29,6 @@
 
   <properties>
     <tycho-version>0.15.0</tycho-version>
-    <tycho.testArgLine></tycho.testArgLine>
     <mockito-version>1.8.4</mockito-version>
     <junit-version>4.8.1</junit-version>    
     <!-- Repository Locations -->
@@ -205,7 +204,6 @@
     	<id>sonar-jcoverage</id>
       	<properties>
       		<!-- Properties to enable jacoco code coverage analysis -->
-      		<coverage-skip>false</coverage-skip>
       		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
       		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
       		<sonar.jacoco.reportPath>../target/jacoco.exec</sonar.jacoco.reportPath>
