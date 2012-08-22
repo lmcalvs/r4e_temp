@@ -158,13 +158,11 @@
       </build>
 
       <repositories>
-<!-- change under test
         <repository>
           <id>eclipse-mylyn-commons</id>
           <layout>p2</layout>
           <url>${mylyn-commons-repository-url}</url>
         </repository>
--->
         <repository>
           <id>eclipse-platform</id>
           <layout>p2</layout>
@@ -257,6 +255,8 @@
         <target-platform>r4e-dev-e3.7</target-platform>
         <platform-repository-url>http://download.eclipse.org/releases/indigo/201202240900/</platform-repository-url>
         <egit-repository-url>http://download.eclipse.org/egit/updates-1.3/</egit-repository-url>
+<!-- http://download.eclipse.org/mylyn/releases/3.7  -->
+
       </properties>
     </profile>
 
