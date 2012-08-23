@@ -83,25 +83,28 @@
       </modules>
     </profile>
 
-    <profile>
-      <id>coverage-to-sonar</id>
-      <activation>
-        <property>
-          <name>!coverage.skip</name>
-        </property>
-      </activation>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>2.0-beta-2</version>
-      </plugin>
-    </profile>
+	<profile>
+		<id>coverage-to-sonar</id>
+		<activation>
+			<property>
+				<name>!coverage.skip</name>
+			</property>
+		</activation>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>2.0-beta-2</version>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
 
 <!--  Default coverage configuration taken from parent
     <profile>
     	<id>sonar-jcoverage</id>
       	<properties>
-      		<!-- Properties to enable jacoco code coverage analysis -->
       		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
       		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
       		<sonar.jacoco.reportPath>../target/jacoco.exec</sonar.jacoco.reportPath>
@@ -109,7 +112,6 @@
 
     	<build>
       		<plugins>
-       	 	<!-- Enabling use of jacoco -->
         		<plugin>
           			<groupId>org.jacoco</groupId>
           			<artifactId>jacoco-maven-plugin</artifactId>
@@ -121,7 +123,6 @@
               				</goals>
               				<configuration>
                    			<skip>${coverage.skip}</skip>
-                			<!-- Where to put jacoco coverage report -->
                 			<destFile>${sonar.jacoco.reportPath}</destFile>
                    			<includes>
                      			<include>${coverage.filter}</include>
